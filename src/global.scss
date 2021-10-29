@@ -1,0 +1,181 @@
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+:root {
+  --gray: #dad6d6;
+  --primary: #da5252;
+  --secondary: #6d0365;
+  --tertiary: #026e9e;
+  --success: #067655;
+  --warning: #ffcc00;
+  --danger: #d60484;
+  --medium: #9294aa;
+  --theme-gradient: linear-gradient(0deg, #ccf0fd 10%, #beebfb 32%, #97dff9 68%, #86daf9 100%);
+  --noti-gradient: linear-gradient(90deg, #ffffff 2%, #fae8d8 40%, #fae8d8 60%, #ffffff 100%);
+}
+
+ion-button {
+  letter-spacing: 0.5px;
+}
+
+ion-list {
+  background: transparent !important;
+}
+
+ion-item {
+  --inner-padding-end: 0px;
+  --background: transparent;
+}
+
+ion-back-button {
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.customMarker {
+  position: absolute;
+  cursor: pointer;
+  background: #424242;
+  width: 50px;
+  height: 50px;
+  margin-left: -26px;
+  margin-top: -57px;
+  border-radius: 50%;
+  padding: 0px;
+  z-index: 100;
+}
+.customMarker:after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 19px;
+  border-width: 7px 7px 0;
+  border-style: solid;
+  border-color: #424242 transparent;
+  display: block;
+  width: 0;
+}
+.customMarker img {
+  width: 46px;
+  height: 46px;
+  margin: 2px;
+  border-radius: 50%;
+}
+.online:before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  bottom: 0;
+  left: auto;
+  right: 1px;
+  margin: auto 0;
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 50%;
+  background: #06ce06;
+}
+.offline:before {
+  content: "";
+  position: absolute;
+  top: 35px;
+  bottom: 0;
+  left: auto;
+  right: 1px;
+  margin: auto 0;
+  width: 10px;
+  height: 10px;
+  display: block;
+  border-radius: 10px;
+  background: #ce3406;
+}
+
+.myMarker {
+  position: absolute;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  margin-left: -21px;
+  margin-top: -40px;
+  border-radius: 50%;
+  padding: 0px;
+  z-index: 10;
+  text-align: center;
+}
+.myMarker img {
+  margin: 0 auto;
+}
+
+
+.user_detail .modal-wrapper {
+  height: 100px;
+  width: 95%;
+  border-radius: 20px;
+  position: absolute;
+  bottom: calc(26px + env(safe-area-inset-bottom));
+}
+
+.crop_image .modal-wrapper {
+  width: 99%;
+  height: 99%;
+  border-radius: 30px;
+}
+
+
+
+
+
+
+
+
+.gift_modal .modal-wrapper {
+  height: 340px;
+  width: 100%;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  position: absolute;
+  bottom: 0;
+}
+
+.show-viewfinder,
+.show-native-player {
+  --background: transparent !important;
+  --background-color: transparent !important;
+  background-color: transparent !important;
+
+  ion-app,
+  ion-content,
+  .nav-decor {
+    --background: transparent !important;
+    --background-color: transparent !important;
+    background-color: transparent !important;
+  }
+}
+
+.textarea-wrapper.sc-ion-textarea-ios,
+.textarea-wrapper.sc-ion-textarea-md,
+.native-textarea.sc-ion-textarea-ios,
+.native-textarea.sc-ion-textarea-md {
+  height: 100%;
+}
+
+.infinite-scroll-content-ios .infinite-loading-text,
+.infinite-scroll-content-md .infinite-loading-text {
+  color: white;
+}
+
+.spinner-bubbles {
+  color: white;
+}

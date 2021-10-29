@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="primary" [icon]="'chevron-back-outline'" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Friend Requests</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item class="ion-no-padding" lines="none" *ngFor="let user of notis">
+      <ion-avatar slot="start">
+        <img [src]="user.user_data.avatar" alt="">
+      </ion-avatar>
+      <div style="width: 100%;">
+        <h3>{{user.user_data.name}}</h3>
+        <p *ngIf="user.user_data.online == '0'">Last seen: {{ moment(user.user_data.last_seen).fromNow() }}</p>
+        <p *ngIf="user.user_data.online == '1'" class="online">Online</p>
+        <div align="right" class="ion-no-margin">
+          <ion-button size="small" class="ion-no-margin" color="success" style="margin-right: 25px;" (click)="accept(user)">Accept</ion-button>
+          <ion-button size="small" class="ion-no-margin" color="danger" (click)="decline(user)">Decline</ion-button>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

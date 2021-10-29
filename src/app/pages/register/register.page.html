@@ -1,0 +1,48 @@
+<ion-content class="ion-padding">
+  <br>
+
+  <h2 align="center">{{'create_account' | translate}}</h2>
+
+  <div class="ion-padding">
+    <form [formGroup]="form">
+      <ion-list>
+        <ion-item class="ion-no-padding" lines="line">
+          <ion-label position="floating" [color]="(form.get('name').invalid && form.get('name').touched) ? 'danger' : 'tertiary'">{{'Name' | translate}}</ion-label>
+          <ion-input type="text" formControlName="name" [color]="(form.get('name').invalid && form.get('name').touched) ? 'danger' : 'dark'" autocapitalize="words"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-no-padding" lines="line">
+          <ion-label position="floating" [color]="(form.get('email').invalid && form.get('email').touched) ? 'danger' : 'tertiary'">{{'email' | translate}}</ion-label>
+          <ion-input type="email" formControlName="email" [color]="(form.get('email').invalid && form.get('email').touched) ? 'danger' : 'dark'"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-no-padding" lines="line">
+          <ion-label position="floating" [color]="(form.get('password').invalid && form.get('password').touched) ? 'danger' : 'tertiary'">{{'password' | translate}}</ion-label>
+          <ion-input type="password" formControlName="password" [color]="(form.get('password').invalid && form.get('password').touched) ? 'danger' : 'dark'"></ion-input>
+        </ion-item>
+
+        <ion-item class="ion-no-padding" lines="line">
+          <ion-label position="floating" [color]="(form.get('c_password').invalid && form.get('c_password').touched) ? 'danger' : 'tertiary'">{{'confirm_password' | translate}}</ion-label>
+          <ion-input type="password" formControlName="c_password" [color]="(form.get('c_password').invalid && form.get('c_password').touched) ? 'danger' : 'dark'"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+    <br>
+    <div>
+      <ion-row>
+        <ion-col class="ion-no-padding ion-align-item-center ion-align-self-center" size="1">
+          <ion-checkbox [(ngModel)]="agree_term" mode="md"></ion-checkbox>
+        </ion-col>
+        <ion-col class="ion-no-padding ion-align-item-center ion-align-self-center" size="11" style="padding-left: 6px;">
+          <ion-label class="terms_label">{{'will_accept_our' | translate}} <span (click)="showContent('policy')">{{'privacy_policy' | translate}}</span> {{'and' | translate}} <span (click)="showContent('terms')">{{'terms_use' | translate}}</span></ion-label>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <br>
+  <div align="center">
+    <ion-button color="danger" shape="round" (click)="signup()" class="login_btn" [disabled]="!form.valid || !agree_term">{{'signup' | translate}}</ion-button>
+    <br><br>
+    <ion-note color="dark">{{'have_already' | translate}} &nbsp; <ion-button fill="clear" color="danger" size="small" class="sign_btn" routerLink="/login" routerDirection="back">{{'login' | translate}}</ion-button></ion-note>
+  </div>
+</ion-content>

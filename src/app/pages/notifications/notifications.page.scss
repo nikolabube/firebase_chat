@@ -1,0 +1,39 @@
+ion-item {
+  margin-bottom: 12px;
+
+  ion-avatar {
+    width: 77px;
+    height: 77px;
+  }
+
+  h3 {
+    font-size: 17px;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0 0 5px 0;
+    font-size: 13px;
+    position: relative;
+
+    &.online {
+      padding: 0 16px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        left: 0px;
+        right: 0;
+        margin: auto 0;
+        width: 10px;
+        height: 10px;
+        display: block;
+        border-radius: 50%;
+        background: #06ce06;
+      }
+    }
+  }
+}

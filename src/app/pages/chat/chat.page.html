@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="primary" [icon]="preference.defaultLang == 'ar' ? 'chevron-forward-outline' : 'chevron-back-outline'" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title class="prof_title">
+      <ion-item lines="none" class="ion-no-padding" *ngIf="userData">
+        <ion-avatar slot="start">
+          <img [src]="userData.avatar" alt="">
+        </ion-avatar>
+        <div>
+          <h3>{{userData.name}}&nbsp;<span><ion-icon name="ellipse" color="success" *ngIf="userData.online == '1'"></ion-icon></span> </h3>
+          <p *ngIf="userData.online == '1'">Online</p>
+          <p *ngIf="userData.online == '0'">Last seen: {{ moment(userData.last_seen).fromNow() }}</p>
+        </div>
+      </ion-item>
+    </ion-title>
+
+    <!-- <ion-buttons slot="end">
+      <ion-button size="small" fill="clear" color="primary" [disabled]="userData?.online == '0'" (click)="privateChat()">
+        <ion-icon name="videocam"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [scrollEvents]="true" (ionScroll)="onScroll($event)">
+  <div align="center" style="margin-top: 10px;">
+    <ion-spinner name="circles" [hidden]="!showSpinner"></ion-spinner>
+  </div>
+
+  <div class="post-div">
+    <p style="text-align: center; font-size: 13px; margin: 0; width: 100%;" *ngIf="chats.length == 0">No message yet</p>
+
+    <div id="message-wrap" class="message-wrap">
+      <div *ngFor="let data of chats; let i = index" class="message"
+        [class.right]="preference.my_uid == data.sender" [class.left]="preference.my_uid != data.sender">
+        <div class="msg-detail">
+          <div class="msg-info">
+            <p> </p>
+          </div>
+          <div class="msg-content">
+            <span class="triangle"></span>
+            <p class="text" *ngIf="data.msg_type == 'text'" [innerHTML]="preference.removeHtmlEntites(data.msg)" (click)="selectMessage(data)"></p>
+            <ion-spinner name="crescent" *ngIf="data.msg_type == 'picture' && !data.loaded"></ion-spinner>
+            <ion-img [src]="data.media_url" alt="" *ngIf="data.msg_type == 'picture'" ionImgViewer (ionImgDidLoad)="data.loaded = true"></ion-img>
+            <h5 (click)="selectMessage(data)">{{moment(data.created_at).fromNow()}} <span *ngIf="preference.my_uid == data.sender"><ion-icon [name]="data.seen == 0 ? 'checkmark-outline' : 'checkmark-done-outline'" style="font-size: 16px; position: relative; top: 4px;" [style.color]="data.seen == 0 ? 'gray' : '#07c0f7'"></ion-icon></span></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<div class="footer">
+  <ion-row>
+    <ion-col [size]="typing || (new_mess && new_mess != '') ? '10' : '10'" class="ion-align-self-center ion-align-item-center ion-text-center">
+      <ion-input [(ngModel)]="new_mess" placeholder="Type your message" autocapitalize="sentences"
+      (keypress)="sendChat($event.keyCode)" (ionBlur)="lossFocus()"></ion-input>
+    </ion-col>
+
+    <ion-col *ngIf="!typing && (!new_mess || new_mess == '')" size="2" class="ion-align-self-center ion-align-item-center ion-text-center" style="position: relative;">
+      <ion-button class="camera_btn" fill="clear" (click)="choosePhotoType()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-button>
+    </ion-col>
+    <!-- <ion-col *ngIf="!typing && (!new_mess || new_mess == '')" size="2" class="ion-align-self-center ion-align-item-center ion-text-center">
+      <ion-button *ngIf="!isAudioRecording" class="mic_btn" fill="clear" (click)="captureAudio()">
+        <ion-icon name="mic"></ion-icon>
+      </ion-button>
+      <ion-button *ngIf="isAudioRecording" class="mic_btn" fill="clear" (click)="stopAudio()">
+        <ion-icon name="mic-circle"></ion-icon>
+      </ion-button>
+    </ion-col> -->
+
+    <ion-col *ngIf="typing || (new_mess && new_mess != '')" size="2" class="ion-align-self-center ion-align-item-center ion-text-center">
+      <ion-button class="send_btn" (click)="sendMess(new_mess)">
+        <ion-icon name="send"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</div>

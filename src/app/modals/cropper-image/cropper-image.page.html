@@ -1,0 +1,28 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title></ion-title>
+    <ion-buttons slot="end" style="margin-right: 10px;">
+      <ion-button fill="clear" (click)="save()">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-start ion-padding-end ion-padding-bottom">
+  <div align="center">
+    <image-cropper
+    [imageBase64]="imageData"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4/4"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    outputType="base64"
+    style="width: 80%;"></image-cropper>
+  </div>
+  <div *ngIf="croppedImage" align="center">
+    <p style="margin: 0px 0 8px;">Cropped Image</p>
+    <img [src]="croppedImage" alt="" style="width: 80%;">
+  </div>
+
+</ion-content>

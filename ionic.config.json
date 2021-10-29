@@ -1,0 +1,8 @@
+{
+  "name": "who_app",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,41 @@
+p {
+  margin: 0;
+  font-size: 14px;
+  color: white;
+  margin-top: 9%;
+}
+
+ion-col {
+  height: 45px;
+  position: relative;
+}
+
+ion-icon {
+  color: #f19393;
+  margin-top: 11%;
+  font-size: 23px;
+}
+
+.selected {
+  border-top: 2px solid white;
+}
+
+ion-footer,
+ion-toolbar {
+  --background: var(--danger);
+  --min-height: 0px;
+}
+
+.new_msg {
+  position: absolute;
+  right: 16px;
+  top: 0px;
+  font-size: 15px;
+}
+
+.new_badge {
+  --padding-start: 6px;
+  --padding-end: 6px;
+  font-size: 12px;
+  top: 3px;
+}

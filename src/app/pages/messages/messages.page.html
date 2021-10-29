@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" size="small" color="dark" (click)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-item class="ion-no-padding" lines="none">
+        <ion-avatar slot="start">
+          <img [src]="preference.currentUser?.avatar" alt="">
+        </ion-avatar>
+        <h3>Chat</h3>
+      </ion-item>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-icon name="ellipse" color="success" class="noti" *ngIf="new_request" routerLink="/notifications" routerDirection="forward"></ion-icon>
+      <ion-button fill="clear" size="small" color="dark" routerLink="/notifications" routerDirection="forward">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" size="small" color="dark" routerLink="/all-users" routerDirection="forward">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item class="ion-no-padding" lines="none" *ngFor="let user of users" (click)="showMessage(user)">
+      <ion-avatar slot="start">
+        <img [src]="user.avatar" alt="">
+        <ion-icon name="ellipse" [color]="user.online == '1' ? 'success' : 'danger'"></ion-icon>
+      </ion-avatar>
+      <div>
+        <h3>{{user.name}}</h3>
+        <div *ngIf="user.messages">
+          <p *ngIf="user.messages.msg_type == 'text'" [style.color]="(user.messages?.sender != preference.my_uid && user.messages?.seen == '0') ? 'red' : 'black'">
+            {{user.messages.sender == preference.my_uid ? 'You' : user.name}}: {{user.messages.msg.length > 18 ? user.messages.msg.substring(0, 18) + '...' : user.messages.msg}}
+          </p>
+          <p *ngIf="user.messages.msg_type == 'picture'" [style.color]="(user.messages?.sender != preference.my_uid && user.messages?.seen == '0') ? 'red' : 'black'">
+            {{user.messages.sender == preference.my_uid ? 'You' : user.name}}: <span><ion-icon name="image-outline" class="img_msg"></ion-icon></span>
+          </p>
+        </div>
+        <p *ngIf="!user.messages" style="color: gray;">No message yet</p>
+      </div>
+      <ion-icon name="ellipse" color="danger" class="not_seen" *ngIf="user.messages?.sender != preference.my_uid && user.messages?.seen == '0'"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <ion-fab-button color="secondary" routerLink="/home" routerDirection="back">
+    <ion-icon name="location-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

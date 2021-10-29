@@ -1,0 +1,35 @@
+<ion-footer class="ion-no-border ion-no-padding">
+  <ion-toolbar class="ion-no-padding">
+    <ion-row>
+      <ion-col [ngClass]="{'selected': url == 'home'}">
+        <div align="center" (click)="goPage('home')">
+          <ion-icon name="home" *ngIf="url != 'home'"></ion-icon>
+          <p *ngIf="url == 'home'">{{'home' | translate}}</p>
+        </div>
+      </ion-col>
+
+      <ion-col [ngClass]="{'selected': url == 'favorites'}">
+        <div align="center" (click)="goPage('favorites')">
+          <ion-icon *ngIf="url != 'favorites'" name="heart"></ion-icon>
+          <p *ngIf="url == 'favorites'">{{'favorite' | translate}}</p>
+        </div>
+      </ion-col>
+
+      <ion-col [ngClass]="{'selected': url == 'messages'}">
+        <div align="center" (click)="goPage('messages')">
+          <ion-icon *ngIf="url != 'messages'" name="chatbox"></ion-icon>
+          <p *ngIf="url == 'messages'">{{'messages' | translate}}</p>
+        </div>
+        <!-- <ion-icon name="ellipse" color="success" *ngIf="new_mess" class="new_msg"></ion-icon> -->
+        <ion-badge color="success" class="new_msg new_badge" *ngIf="new_mess && new_count > 0" (click)="goPage('messages')">{{new_count}}</ion-badge>
+      </ion-col>
+
+      <ion-col [ngClass]="{'selected': url == 'account'}">
+        <div align="center" (click)="goPage('account')">
+          <ion-icon *ngIf="url != 'account'" name="person"></ion-icon>
+          <p *ngIf="url == 'account'">{{'profile' | translate}}</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

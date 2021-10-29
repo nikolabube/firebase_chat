@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="primary" [icon]="'chevron-back-outline'" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Edit Profile</ion-title>
+
+    <!-- <ion-buttons slot="end">
+      <ion-button size="small" fill="clear" color="primary" (click)="update()">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="userData">
+    <div align="center" style="position: relative;">
+      <div class="prof_div">
+        <img [src]="userData.avatar" alt="">
+      </div>
+
+      <ion-button class="profile_img_add" (click)="choosePhotoType('profile')">
+        <ion-icon name="pencil-outline"></ion-icon>
+      </ion-button>
+      <!-- <input class="profile_img_input" type="file" *ngIf="!platform.is('hybrid')" name="images" #images (change)="changeImageListener($event, 'profile')" accept="image/*"> -->
+    </div>
+    <ion-progress-bar *ngIf="uploading" color="secondary" [value]="mediaService.progress / 100"></ion-progress-bar>
+
+    <div class="edit_sec">
+      <h3><strong>Name</strong></h3>
+      <ion-input type="text" placeholder="Name" [(ngModel)]="name" autocapitalize="words"></ion-input>
+    </div>
+
+    <div class="edit_sec">
+      <h3><strong>Phone</strong></h3>
+      <ion-input type="tel" placeholder="Phone Number" [(ngModel)]="phone"></ion-input>
+    </div>
+
+    <div class="edit_sec">
+      <h3><strong>Address</strong></h3>
+      <ion-input type="text" placeholder="Address" [(ngModel)]="address" autocapitalize="words"></ion-input>
+    </div>
+
+    <div class="edit_sec">
+      <h3><strong>Gender</strong></h3>
+      <ion-select [(ngModel)]="gender" interface="popover">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+      </ion-select>
+    </div>
+  </div>
+  <br><br>
+  <div align="center">
+    <ion-button shape="round" size="small" class="update_btn" color="secondary" (click)="update()">Update</ion-button>
+  </div>
+</ion-content>

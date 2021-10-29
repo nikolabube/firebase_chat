@@ -1,0 +1,73 @@
+.prof_div {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 2px solid #e4e2e2;
+  overflow: hidden;
+
+  img {
+    min-height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+ion-progress-bar {
+  width: 50%;
+  margin: 12px auto;
+}
+
+.profile_img_add {
+  position: absolute;
+  right: 33%;
+  bottom: 0;
+  width: 27px;
+  height: 27px;
+  --border-radius: 50%;
+  border-radius: 50%;
+  --background: white;
+  box-shadow: rgb(0 0 0 / 20%) 1px 1px 6px;
+  --padding-start: 0;
+  --padding-end: 0;
+
+  ion-icon {
+    position: absolute;
+    color: red;
+    margin-right: 0;
+    font-size: 16px;
+  }
+}
+
+.profile_img_input {
+  position: absolute;
+  right: 33%;
+  bottom: 0;
+  width: 31px;
+  height: 31px;
+  z-index: 1;
+  opacity: 0;
+}
+
+.edit_sec {
+  h3 {
+    font-size: 16px;
+    color: var(--primary);
+    text-transform: uppercase;
+  }
+
+  ion-input, ion-textarea, ion-select {
+    background: #f9f6f6;
+    --padding-start: 8px;
+    border-radius: 5px;
+  }
+
+  .about_me {
+    height: 110px;
+  }
+}
+
+.update_btn {
+  width: 45%;
+  height: 35px;
+  text-transform: uppercase;
+}

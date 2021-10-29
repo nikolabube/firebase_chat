@@ -1,0 +1,131 @@
+{
+  "project_info": {
+    "project_number": "749928035355",
+    "firebase_url": "https://wherez-ac670-default-rtdb.firebaseio.com",
+    "project_id": "wherez-ac670",
+    "storage_bucket": "wherez-ac670.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749928035355:android:2cf8466453a8b5c112f4be",
+        "android_client_info": {
+          "package_name": "com.wherez.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749928035355-igq9tg6qm97pdohaa0v3tagjc2fc8hg0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wherez.app",
+            "certificate_hash": "2d077da2a44affffa58859ba99b1468a7eefe79b"
+          }
+        },
+        {
+          "client_id": "749928035355-thg0vv7j50j0eosqq28nl4sei223eadg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wherez.app",
+            "certificate_hash": "7710100fa9f7db3fa6d10f4cc64458a0e0680b62"
+          }
+        },
+        {
+          "client_id": "749928035355-uq6nr7mffb588gn2t3rh21mihsiq5baj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wherez.app",
+            "certificate_hash": "feb18a54e0c023e3172d148b8b44d03bd39a4812"
+          }
+        },
+        {
+          "client_id": "749928035355-sgt8kgsivnm9c42c3eb9frinqp6f95c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuqtTjVZD8ZQPjsRAkgLDzQrkCA12ClsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749928035355-sgt8kgsivnm9c42c3eb9frinqp6f95c8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "749928035355-43h7c31hpcqm4ijpi1ubsqijnl9mt4tc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.wherezpremium.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749928035355:android:c86715dc8a2f69ba12f4be",
+        "android_client_info": {
+          "package_name": "com.wherezpremium.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749928035355-2q7fjedr3t34f3ihot3bu1qcs36hsagv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wherezpremium.app",
+            "certificate_hash": "feb18a54e0c023e3172d148b8b44d03bd39a4812"
+          }
+        },
+        {
+          "client_id": "749928035355-6s7o4t0ot050m7d528rm8josf9f9bd13.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wherezpremium.app",
+            "certificate_hash": "7710100fa9f7db3fa6d10f4cc64458a0e0680b62"
+          }
+        },
+        {
+          "client_id": "749928035355-6u1itstid0u8vjjp6men4v735s17ouf5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wherezpremium.app",
+            "certificate_hash": "2d077da2a44affffa58859ba99b1468a7eefe79b"
+          }
+        },
+        {
+          "client_id": "749928035355-sgt8kgsivnm9c42c3eb9frinqp6f95c8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuqtTjVZD8ZQPjsRAkgLDzQrkCA12ClsM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749928035355-sgt8kgsivnm9c42c3eb9frinqp6f95c8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "749928035355-43h7c31hpcqm4ijpi1ubsqijnl9mt4tc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.wherezpremium.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

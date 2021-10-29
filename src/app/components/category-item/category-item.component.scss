@@ -1,0 +1,19 @@
+ion-item {
+  ion-label {
+    font-size: 15px;
+  }
+}
+
+ion-radio-group { 
+
+  ion-list-header {
+    font-size: 19px;
+  }
+
+  ion-radio {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--primary);
+    border-radius: 15px;
+  }
+}

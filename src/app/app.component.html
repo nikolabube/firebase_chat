@@ -1,0 +1,84 @@
+<ion-app style="background: var(--theme-gradient);" class="{{preference.defaultLang == 'ar' ? 'lang_ar' : 'lang_en'}}">
+  <ion-menu contentId="content1" side="start">
+    <ion-header>
+      <ion-toolbar>
+        <div align="center" style="margin-top: 10%;">
+          <div class="profile">
+            <img [src]="preference.currentUser?.avatar" alt="">
+          </div>
+          <h3 class="ion-no-margin"><strong>{{preference.currentUser?.name}}</strong></h3>
+        </div>
+        <ion-row>
+          <ion-col size="6" class="ion-align-item-center ion-align-self-center">
+          </ion-col>
+          <ion-col size="6" class="ion-align-item-center ion-align-self-center" align="right">
+            <ion-button fill="clear" class="view_profile" size="small" (click)="gotoPage('edit-profile')">View Profile</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content>
+      <br>
+      <ion-list class="no-padding" lines="none">
+
+        <ion-menu-toggle auto-hide="false">
+          <div class="menu-items">
+            <ion-item (click)="gotoPage('home')">
+              <ion-icon name="home-outline" slot="start"></ion-icon>
+              <ion-label>
+                Home
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <div class="menu-items">
+            <ion-item (click)="gotoPage('favorites')">
+              <ion-icon name="people-circle-outline" slot="start"></ion-icon>
+              <ion-label>
+                Friends
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+
+        <ion-menu-toggle auto-hide="false">
+          <div class="menu-items">
+            <ion-item (click)="gotoPage('messages')">
+              <ion-icon name="chatbubbles-outline" slot="start"></ion-icon>
+              <ion-label>
+                Chats
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+
+        <!-- <div class="menu-items" *ngIf="preference.currentUser">
+          <ion-item (click)="turnOnOff()">
+            <ion-icon name="location-outline" slot="start" [color]="(!preference.currentUser.showonmap || preference.currentUser.showonmap == 'yes') ? 'danger' : 'dark'"></ion-icon>
+            <ion-label [color]="(!preference.currentUser.showonmap || preference.currentUser.showonmap == 'yes') ? 'danger' : 'dark'">
+              {{(!preference.currentUser.showonmap || preference.currentUser.showonmap == 'yes') ? 'Turn Off Location' : 'Turn On Location'}}
+            </ion-label>
+          </ion-item>
+        </div> -->
+
+        <ion-menu-toggle auto-hide="false">
+          <div class="menu-items">
+            <ion-item (click)="logout()">
+              <ion-icon name="power-outline" slot="start"></ion-icon>
+              <ion-label>
+                Logout
+              </ion-label>
+            </ion-item>
+          </div>
+        </ion-menu-toggle>
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-router-outlet id="content1" dir="ltr"></ion-router-outlet>
+
+</ion-app>

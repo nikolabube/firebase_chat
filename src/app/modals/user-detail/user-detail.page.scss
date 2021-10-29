@@ -1,0 +1,25 @@
+ion-item {
+  ion-avatar {
+    margin: 0 10px 0 0;
+    width: 60px;
+    height: 60px;
+    position: relative;
+
+    ion-icon {
+      position: absolute;
+      top: 5px;
+      right: -3px;
+    }
+  }
+
+  h3 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 5px 0 0 0;
+    font-size: 13px;
+  }
+}

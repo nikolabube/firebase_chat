@@ -1,0 +1,48 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button fill="clear" size="small" color="dark" (click)="showMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title>
+      <ion-item class="ion-no-padding" lines="none">
+        <ion-avatar slot="start">
+          <img [src]="preference.currentUser?.avatar" alt="">
+        </ion-avatar>
+        <h3>Map</h3>
+      </ion-item>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <!-- <ion-badge color="success" routerLink="/notifications" routerDirection="forward">1</ion-badge> -->
+      <ion-icon name="ellipse" color="success" class="noti" *ngIf="new_request" routerLink="/notifications" routerDirection="forward"></ion-icon>
+      <ion-button fill="clear" size="small" color="dark" routerLink="/notifications" routerDirection="forward">
+        <ion-icon name="notifications-outline"></ion-icon>
+      </ion-button>
+
+      <ion-button fill="clear" size="small" color="dark" routerLink="/all-users" routerDirection="forward">
+        <ion-icon name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="map-wrapper">
+    <div #map id="map"></div>
+  </div>
+
+  <!-- <div class="search_bar">
+    <ion-searchbar [(ngModel)]="searchTxt" mode="md" (ionChange)="searchUser($event)"></ion-searchbar>
+  </div> -->
+</ion-content>
+
+<ion-fab vertical="bottom" horizontal="end">
+  <!-- <ion-badge color="success">1</ion-badge> -->
+  <ion-icon name="notifications" color="success" *ngIf="new_noti"></ion-icon>
+  <ion-fab-button color="secondary" routerLink="/messages" routerDirection="forward">
+    <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

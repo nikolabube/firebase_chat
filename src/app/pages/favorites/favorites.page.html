@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button color="primary" [icon]="'chevron-back-outline'" text=""></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>My Friends</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h5>Requests</h5>
+  <div *ngIf="pendings.length == 0 && api_done" style="text-align: center; margin-top: 10%; margin-bottom: 10%;">
+    No data to show
+  </div>
+  <ion-list>
+    <ion-item class="ion-no-padding" lines="none" *ngFor="let user of pendings">
+      <ion-avatar slot="start">
+        <img [src]="user.user_data.avatar" alt="">
+      </ion-avatar>
+      <div>
+        <h3>{{user.user_data.name}}</h3>
+        <p *ngIf="user.user_data.online == '0'">Last seen: {{ moment(user.user_data.last_seen).fromNow() }}</p>
+        <p *ngIf="user.user_data.online == '1'" class="online">Online</p>
+      </div>
+      <div slot="end" class="ion-no-margin">
+        <ion-note slot="end" class="ion-no-margin" color="medium" style="font-size: 13px;">Pending</ion-note>
+        <br>
+        <ion-button color="danger" size="small" (click)="cancelRequest(user)">Cancel</ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+  <br>
+  <h5>Friends</h5>
+  <div *ngIf="users.length == 0 && api_done" style="text-align: center; margin-top: 10%;">
+    No data to show
+  </div>
+  <ion-list>
+    <ion-item class="ion-no-padding" lines="none" *ngFor="let user of users">
+      <ion-avatar slot="start" (click)="startChat(user)">
+        <img [src]="user.avatar" alt="">
+      </ion-avatar>
+      <div (click)="startChat(user)">
+        <h3>{{user.name}}</h3>
+        <p *ngIf="user.online == '0'">Last seen: {{ moment(user.last_seen).fromNow() }}</p>
+        <p *ngIf="user.online == '1'" class="online">Online</p>
+      </div>
+      <ion-button fill="clear" size="small" slot="end" class="ion-no-margin" (click)="removeFriend(user)">Remove</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>

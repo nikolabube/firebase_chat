@@ -1,0 +1,93 @@
+<ion-header *ngIf="platform.is('ios') && remoteUsers.length > 0" >
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-button size="small" [color]="cameraBtnColor" id="camButton" (click)="toggleCamera()">
+        <ion-icon name="camera-reverse-sharp"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" [color]="camBtnColor" (click)="camStatusChanged()">
+        <ion-icon name="{{camBtnIcon}}"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" size="small" [color]="micBtnColor" (click)="micStatusChanged()">
+        <ion-icon name="{{micBtnIcon}}"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title></ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button size="small" color="danger" (click)="exitSession()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content id="video-room-content" [scrollY]="false" [scrollX]="false">
+
+  <div *ngIf="remoteUsers.length == 0" class="profile_div" align="center">
+    <img [src]="preference.vcUser.avatar" alt="">
+    <h3>{{preference.vcUser.name}}</h3>
+
+    <div class="action_div" *ngIf="incomeCall">
+      <div class="income_div">
+        Income Call...
+      </div>
+
+      <ion-button size="small" class="answer_btn" color="tertiary" (click)="answerCall()">
+        <ion-icon name="call"></ion-icon>
+      </ion-button>
+
+      <ion-button size="small" class="decline_btn" color="danger" (click)="declineCall()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <div id="layout" class="bounds">
+    <div class="timer" *ngIf="view_call_time != ''">
+      {{view_call_time}}
+    </div>
+
+    <!-- Main video -->
+    <div *ngIf="localUser && localUser.streamManager && remoteUsers.length > 0" #mainStream  class="OT_root OT_publisher OT_main custom-class" id="localUser">
+      <stream-component #streamComponentLocal [user]="localUser"></stream-component>
+    </div>
+    <!-- Remotes -->
+    <div *ngFor="let user of this.remoteUsers" class="OT_root OT_publisher OT_remote custom-class" id="remoteUsers" (click)="toggleButtonsOrEnlargeStream($event)">
+      <stream-component #streamComponentRemotes [user]="user" ></stream-component>
+    </div>
+  </div>
+
+
+  <ion-fab *ngIf="localUser && localUser.streamManager" vertical="top" horizontal="end" slot="fixed" id="rightButtons">
+    <ion-fab-button [@slideLeftRight]="buttonsVisibility" size="small" [color]="cameraBtnColor" id="camButton" (click)="toggleCamera()">
+      <ion-icon name="camera-reverse-sharp"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button [@slideLeftRight]="buttonsVisibility" size="small" [color]="camBtnColor" (click)="camStatusChanged()">
+      <ion-icon name="{{camBtnIcon}}"></ion-icon>
+    </ion-fab-button>
+
+    <ion-fab-button [@slideLeftRight]="buttonsVisibility" size="small" [color]="micBtnColor" (click)="micStatusChanged()">
+      <ion-icon name="{{micBtnIcon}}"></ion-icon>
+    </ion-fab-button>
+
+    <!-- <ion-fab-button [@slideLeftRight]="buttonsVisibility" size="small" color="light" (click)="resetVideoSize()">
+      <ion-icon name="apps"></ion-icon>
+    </ion-fab-button> -->
+
+    <!-- <ion-fab-button [@slideLeftRightChat]="chatNotification" size="small" [color]="chatBtnColor"
+    (click)="toggleChat()">
+      <ion-icon name="chatbubbles"></ion-icon>
+    </ion-fab-button> -->
+  </ion-fab>
+
+  <ion-fab *ngIf="!setUpModalIsPresented && (!incomeCall || (incomeCall && remoteUsers.length > 0))" vertical="bottom" horizontal="center" id="exitButton" [@slideTopBottom]="buttonsVisibility">
+    <ion-fab-button color="danger" (click)="exitSession()">
+      <ion-icon name="call"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

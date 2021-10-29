@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="end">
+      <ion-button color="light" (click)="dismiss()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>CHAT</ion-title>
+    <!--{{user.streamManager.stream.session.sessionId}} - -->
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding" id="chat-content">
+
+  <div id="message-wrap" class="message-wrap">
+    <div *ngFor="let data of messageList; let i = index" class="message"
+      [class.right]="data.connectionId === user.connectionId" [class.left]=" data.connectionId !== user.connectionId">
+      <div class="user-img">
+        <img [src]="data.userAvatar" />
+      </div>
+      <div class="msg-detail">
+        <div class="msg-info">
+          <p> </p>
+        </div>
+        <div class="msg-content">
+          <span class="triangle"></span>
+          <p class="text">{{data.message}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ion-fab vertical="bottom" horizontal="end" edge slot="fixed" id="sendButton">
+    <ion-fab-button size="small" (click)="sendMessage()">
+      <ion-icon name="send"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
+
+
+<ion-footer [style.height]="'55px'">
+  <div id="messageInput">
+    <ion-item>
+      <ion-input required #chat_input placeholder="Send a message" [(ngModel)]="message" (keyup.enter)="sendMessage()"
+        (ionFocus)="onFocus()"></ion-input>
+    </ion-item>
+  </div>
+</ion-footer>

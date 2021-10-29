@@ -1,0 +1,20 @@
+<div>
+  <ion-list class="ion-padding-top ion-padding-bottom">
+    <ion-radio-group [(ngModel)]="gender" (ionChange)="changeGender($event)">      
+      <ion-item lines="none">
+        <ion-label>{{'Male' | translate}} (5 {{'coins' | translate}})</ion-label>
+        <ion-radio slot="start" value="Male"></ion-radio>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label>{{'Female' | translate}} (9 {{'coins' | translate}})</ion-label>
+        <ion-radio slot="start" value="Female"></ion-radio>
+      </ion-item>
+      
+      <ion-item lines="none">
+        <ion-label>{{'Both' | translate}} ({{'free' | translate}})</ion-label>
+        <ion-radio slot="start" value="Both"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+</div>

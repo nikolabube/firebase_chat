@@ -1,0 +1,15 @@
+<ion-content class="ion-padding">
+  <ion-item class="ion-no-padding" lines="none" *ngIf="userData">
+    <ion-avatar slot="start">
+      <img [src]="userData.avatar" alt="">
+      <ion-icon name="ellipse" [color]="userData.online == '1' ? 'success' : 'danger'"></ion-icon>
+    </ion-avatar>
+    <div>
+      <h3>{{userData.name}}</h3>
+      <p>Joined: {{joined}}</p>
+    </div>
+    <ion-button slot="end" class="ion-no-margin" size="small" color="secondary" (click)="startChat()">
+      <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+</ion-content>

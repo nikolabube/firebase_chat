@@ -1,0 +1,52 @@
+<ion-content class="ion-padding">
+  <br>
+
+  <h2 align="center">Login Your Account</h2>
+
+  <div class="ion-padding">
+    <form [formGroup]="form">
+      <ion-list>
+        <ion-item class="ion-no-padding" lines="line">
+          <ion-label position="floating"
+            [color]="(form.get('email').invalid && form.get('email').touched) ? 'danger' : 'tertiary'">{{'email' |
+            translate}}</ion-label>
+          <ion-input type="email" formControlName="email"
+            [color]="(form.get('email').invalid && form.get('email').touched) ? 'danger' : 'dark'"></ion-input>
+        </ion-item>
+        <br>
+        <ion-item class="ion-no-padding" lines="line">
+          <ion-label position="floating"
+            [color]="(form.get('password').invalid && form.get('password').touched) ? 'danger' : 'tertiary'">{{'password'
+            | translate}}</ion-label>
+          <ion-input type="password" formControlName="password"
+            [color]="(form.get('password').invalid && form.get('password').touched) ? 'danger' : 'dark'"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+
+  <div align="right">
+    <ion-button fill="clear" size="small" class="ion-no-margin" color="dark" routerLink="/forgot-password">{{'forgot_password' | translate}}</ion-button>
+  </div>
+  <br><br>
+  <div align="center">
+    <ion-button color="danger" shape="round" (click)="login()" class="login_btn">{{'login' |
+      translate}}</ion-button>
+    <br><br>
+    <ion-note color="dark">{{'dont_have_account' | translate}} &nbsp; <ion-button fill="clear" color="danger"
+        size="small" class="sign_btn" routerLink="/register" routerDirection="forward">{{'signup' | translate}}
+      </ion-button>
+    </ion-note>
+    <br>
+    <p style="color: black;">{{'or' | translate}}</p>
+    <ion-button class="fb_btn" (click)="fbLogin()">
+      <ion-icon name="logo-facebook"></ion-icon>
+    </ion-button>
+    <ion-button class="gl_btn" (click)="glLogin()">
+      <ion-icon name="logo-google"></ion-icon>
+    </ion-button>
+    <!-- <ion-button *ngIf="platform.is('ios')" class="apl_btn" (click)="aplLogin()">
+      <ion-icon name="logo-apple"></ion-icon>
+    </ion-button> -->
+  </div>
+</ion-content>
